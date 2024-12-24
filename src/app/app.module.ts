@@ -1,16 +1,25 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ConfmotComponent } from './confmot/confmot.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { QRCodeModule } from 'angularx-qrcode';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ConfmotComponent,
+    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    QRCodeModule,
+    FormsModule,
+    ReactiveFormsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

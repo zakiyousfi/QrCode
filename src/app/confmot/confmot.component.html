@@ -1,0 +1,25 @@
+
+<form [formGroup]="formulaire" >
+    <div class="container">
+        <h1>Nous contacter</h1>
+        <div class="form-group">
+            <label for="email">Saisir votre Email</label>
+            <input name="email" type="email" id="email" class="form-control" required ngModel #e="ngModel" placeholder="Email">
+            <div class="alert alert-danger" *ngIf="e.invalid && e.touched">
+                <div *ngIf="e.errors?.['required']">Champs email est obligatoire</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="pass">Saisir votre mot de passe</label>
+            <input type="password" formControlName="MotDePasse" placeholder="Mot de passe" class="form-control"><br>
+        </div>
+        <div class="form-group">
+            <label for="confpass">Confirmer votre mot de passe</label>
+            <input type="password" formControlName="confirmationMotDePasse" placeholder="Confirmer le mot de passe" class="form-control"><br>
+        </div>
+        <div class="alert alert-danger" *ngIf="formulaire.get('MotDePasse')?.value !== formulaire.get('confirmationMotDePasse')?.value">
+            Les mots de passe ne correspondent pas.
+        </div>
+        <input type="submit" value="Ajouter" class="btn btn-primary">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="reset" class="btn btn-success">
+    </div>
+</form>
